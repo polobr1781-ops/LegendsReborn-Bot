@@ -1,17 +1,23 @@
 const Keyv = require('keyv');
 const KeyvFile = require('keyv-file');
 
-// A CORREÇÃO FINAL ESTÁ AQUI: KeyvFile.default
-// Estamos dizendo: "Pegue a planta que está na propriedade 'default' do manual".
+// A sintaxe correta para o Railway
 const db = new Keyv({
-    store: new KeyvFile.default({
+    store: new KeyvFile({
         filename: 'database/main.json'
     })
 });
 
 db.on('error', err => console.error('Erro de Conexão com o Keyv:', err));
 
-const { items } = require('./items.js');
+// Verificação de segurança para o 'items.js'
+let items = {};
+try {
+    items = require('./items.js').items;
+} catch (e) {
+    console.error("AVISO: O arquivo 'items.js' não foi encontrado ou está com erro. Funções de item podem falhar.");
+}
+
 
 function calcularXpParaUpar(level) {
     return Math.floor(Math.pow(level, 1.5) * 100);
@@ -51,6 +57,8 @@ function adicionarXp(player, xpAmount) {
 
 function calcularBonusEquipamentos(playerData) {
     const bonus = { forca: 0, destreza: 0, constituicao: 0, inteligencia: 0 };
+    if (!playerData || !playerData.equipamento) return bonus;
+
     for (const slot in playerData.equipamento) {
         const itemId = playerData.equipamento[slot];
         if (itemId) {
@@ -67,4 +75,5 @@ function calcularBonusEquipamentos(playerData) {
     return bonus;
 }
 
-module.exports = { getPlayerData, db, calcularXpParaUpar, calcularBonusEquipamentos
+// A LINHA CORRIGIDA E COMPLETA
+module.exports = { getPlayerData, db, calcularXpParaUpar, calcularBonusEquipamentos, adicionarXp };
