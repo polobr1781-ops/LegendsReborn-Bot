@@ -1,8 +1,10 @@
 const Keyv = require('keyv');
 const KeyvFile = require('keyv-file');
 
+// A CORREÇÃO FINAL ESTÁ AQUI: KeyvFile.default
+// Estamos dizendo: "Pegue a planta que está na propriedade 'default' do manual".
 const db = new Keyv({
-    store: new KeyvFile({
+    store: new KeyvFile.default({
         filename: 'database/main.json'
     })
 });
@@ -65,4 +67,4 @@ function calcularBonusEquipamentos(playerData) {
     return bonus;
 }
 
-module.exports = { getPlayerData, db, calcularXpParaUpar, calcularBonusEquipamentos, adicionarXp };
+module.exports = { getPlayerData, db, calcularXpParaUpar, calcularBonusEquipamentos
