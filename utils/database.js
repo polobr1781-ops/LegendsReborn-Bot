@@ -1,7 +1,8 @@
 const Keyv = require('keyv');
+const KeyvFile = require('keyv-file');
 
 const db = new Keyv({
-    store: require('keyv-file')({
+    store: new KeyvFile({
         filename: 'database/main.json'
     })
 });
@@ -32,7 +33,6 @@ async function getPlayerData(userId) {
     return playerData;
 }
 
-// O resto do seu código (adicionarXp, etc.) não precisa mudar.
 function adicionarXp(player, xpAmount) {
     player.xp += xpAmount;
     let levelUps = 0;
