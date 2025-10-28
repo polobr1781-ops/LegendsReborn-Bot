@@ -9,7 +9,7 @@
   "dependencies": {
     "discord.js": "latest",
     "dotenv": "latest",
-    "keyv": "latest",
-    "@keyv/sqlite": "latest"
+    "keyv": "^5.5.3",
+    "keyv-file": "^5.2.0"
   }
 }

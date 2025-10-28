@@ -1,5 +1,10 @@
 const Keyv = require('keyv');
-const db = new Keyv('sqlite://database/main.sqlite');
+
+const db = new Keyv({
+    store: require('keyv-file')({
+        filename: 'database/main.json'
+    })
+});
 
 db.on('error', err => console.error('Erro de Conexão com o Keyv:', err));
 
@@ -27,6 +32,7 @@ async function getPlayerData(userId) {
     return playerData;
 }
 
+// O resto do seu código (adicionarXp, etc.) não precisa mudar.
 function adicionarXp(player, xpAmount) {
     player.xp += xpAmount;
     let levelUps = 0;
