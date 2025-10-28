@@ -1,5 +1,7 @@
-const { KeyValue } = require("@aoijs/aoi.db");
-const db = new KeyValue({ table: "main" });
+const Keyv = require('keyv');
+const db = new Keyv('sqlite://database/main.sqlite');
+
+db.on('error', err => console.error('Erro de Conexão com o Keyv:', err));
 
 const { items } = require('./items.js');
 
@@ -8,12 +10,7 @@ function calcularXpParaUpar(level) {
 }
 
 const defaultProfile = {
-    level: 1,
-    classe: 'Aprendiz',
-    xp: 0,
-    xpParaUpar: calcularXpParaUpar(1),
-    moeda: 0,
-    inventario: [],
+    level: 1, xp: 0, xpParaUpar: calcularXpParaUpar(1), moeda: 0, inventario: [],
     equipamento: { arma: null, elmo: null, peitoral: null, calcas: null, botas: null },
     pontos: { atributo: 5, habilidade: 1 },
     atributos: { forca: 5, destreza: 5, constituicao: 5, inteligencia: 5 },

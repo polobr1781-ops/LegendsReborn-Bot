@@ -7,8 +7,9 @@
     "start": "node bot.js"
   },
   "dependencies": {
-    "@aoijs/aoi.db": "^0.0.0",
     "discord.js": "latest",
-    "dotenv": "latest"
+    "dotenv": "latest",
+    "keyv": "latest",
+    "@keyv/sqlite": "latest"
   }
 }
