@@ -1,0 +1,14 @@
+{
+  "name": "legendsreborn-bot",
+  "version": "1.0.0",
+  "description": "O bot definitivo para o RPG Legends Reborn.",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js"
+  },
+  "dependencies": {
+    "@aoijs/aoi.db": "^0.0.0",
+    "discord.js": "latest",
+    "dotenv": "latest"
+  }
+}
