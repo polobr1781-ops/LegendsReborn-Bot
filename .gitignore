@@ -1,3 +1,7 @@
 node_modules/
 .env
 database/
+.cache/
+.local/
+.config/
+package-lock.json

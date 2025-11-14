@@ -1,7 +1,6 @@
-const Keyv = require('keyv');
-const KeyvFile = require('keyv-file');
+const { Keyv } = require('keyv');
+const { KeyvFile } = require('keyv-file');
 
-// A sintaxe correta para o Railway
 const db = new Keyv({
     store: new KeyvFile({
         filename: 'database/main.json'
