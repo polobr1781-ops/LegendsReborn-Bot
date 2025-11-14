@@ -1,0 +1,250 @@
+2025-11-14T17:44:54.324151383Z [inf]  
+2025-11-14T17:44:54.952719226Z [inf]  [35m[Region: us-west1][0m
+2025-11-14T17:44:54.975882266Z [inf]  
+2025-11-14T17:44:54.975921345Z [inf]  [38;2;125;86;243m╭─────────────────╮[0m
+2025-11-14T17:44:54.975927628Z [inf]  [38;2;125;86;243m│[0m Railpack 0.11.0 [38;2;125;86;243m│[0m
+2025-11-14T17:44:54.975932844Z [inf]  [38;2;125;86;243m╰─────────────────╯[0m
+2025-11-14T17:44:54.975938709Z [inf]  
+2025-11-14T17:44:54.975943586Z [inf]  [97m↳ Detected Node[0m
+2025-11-14T17:44:54.975951657Z [inf]  [97m↳ Using npm package manager[0m
+2025-11-14T17:44:54.975956894Z [inf]  
+2025-11-14T17:44:54.975961904Z [inf]  [1mPackages[0m
+2025-11-14T17:44:54.975966386Z [inf]  [38;5;238m──────────[0m
+2025-11-14T17:44:54.975970830Z [inf]  [95mnode[0m  [38;5;238m│[0m  [96m22.21.1[0m  [38;5;238m│[0m  railpack default (22)
+2025-11-14T17:44:54.975975438Z [inf]  
+2025-11-14T17:44:54.975979466Z [inf]  [1mSteps[0m
+2025-11-14T17:44:54.975984291Z [inf]  [38;5;238m──────────[0m
+2025-11-14T17:44:54.975988597Z [inf]  [95m▸ install[0m
+2025-11-14T17:44:54.975993194Z [inf]  [38;5;245m$[0m [1mnpm ci[0m
+2025-11-14T17:44:54.975997674Z [inf]  
+2025-11-14T17:44:54.976002339Z [inf]  [1mDeploy[0m
+2025-11-14T17:44:54.976006676Z [inf]  [38;5;238m──────────[0m
+2025-11-14T17:44:54.976011501Z [inf]  [38;5;245m$[0m [1mnpm run start[0m
+2025-11-14T17:44:54.976016183Z [inf]  
+2025-11-14T17:44:54.976020619Z [inf]  
+2025-11-14T17:44:54.978559092Z [inf]  Successfully prepared Railpack plan for build
+2025-11-14T17:44:54.978589399Z [inf]  
+2025-11-14T17:44:54.978596470Z [inf]  
+2025-11-14T17:44:54.978880447Z [inf]  context: szh9-Tdk5
+2025-11-14T17:44:55.131129572Z [inf]  [internal] load build definition from railpack-plan.json
+2025-11-14T17:44:55.131171444Z [inf]  [internal] load build definition from railpack-plan.json
+2025-11-14T17:44:55.131267077Z [inf]  [internal] load build definition from railpack-plan.json
+2025-11-14T17:44:55.145364947Z [inf]  [internal] load build definition from railpack-plan.json
+2025-11-14T17:44:55.148254528Z [inf]  resolve image config for docker-image://ghcr.io/railwayapp/railpack-frontend:v0.11.0
+2025-11-14T17:44:55.373159599Z [inf]  resolve image config for docker-image://ghcr.io/railwayapp/railpack-frontend:v0.11.0
+2025-11-14T17:44:55.373215616Z [inf]  docker-image://ghcr.io/railwayapp/railpack-frontend:v0.11.0@sha256:f82f51feb2dfd58bcb90015a51eb6cc3941f35692975e44f3f7096f611884a51
+2025-11-14T17:44:55.373262268Z [inf]  docker-image://ghcr.io/railwayapp/railpack-frontend:v0.11.0@sha256:f82f51feb2dfd58bcb90015a51eb6cc3941f35692975e44f3f7096f611884a51
+2025-11-14T17:44:55.380160714Z [inf]  docker-image://ghcr.io/railwayapp/railpack-frontend:v0.11.0@sha256:f82f51feb2dfd58bcb90015a51eb6cc3941f35692975e44f3f7096f611884a51
+2025-11-14T17:44:55.380524340Z [inf]  docker-image://ghcr.io/railwayapp/railpack-frontend:v0.11.0@sha256:f82f51feb2dfd58bcb90015a51eb6cc3941f35692975e44f3f7096f611884a51
+2025-11-14T17:44:55.469335305Z [inf]  load build definition from railpack-plan.json
+2025-11-14T17:44:55.469388935Z [inf]  load build definition from railpack-plan.json
+2025-11-14T17:44:55.469411863Z [inf]  load build definition from railpack-plan.json
+2025-11-14T17:44:55.483264654Z [inf]  load build definition from railpack-plan.json
+2025-11-14T17:44:55.502767094Z [inf]  loading .
+2025-11-14T17:44:55.502814744Z [inf]  mkdir -p /app/node_modules/.cache
+2025-11-14T17:44:55.502823740Z [inf]  copy /root/.local/state/mise
+2025-11-14T17:44:55.502829937Z [inf]  copy /etc/mise/config.toml
+2025-11-14T17:44:55.502837197Z [inf]  copy /usr/local/bin/mise
+2025-11-14T17:44:55.502849422Z [inf]  copy package-lock.json
+2025-11-14T17:44:55.502857570Z [inf]  copy /mise/shims
+2025-11-14T17:44:55.502863166Z [inf]  install mise packages: node
+2025-11-14T17:44:55.502868500Z [inf]  create mise config
+2025-11-14T17:44:55.502873735Z [inf]  mkdir /etc/mise
+2025-11-14T17:44:55.502878944Z [inf]  docker-image://ghcr.io/railwayapp/railpack-builder:latest
+2025-11-14T17:44:55.502884499Z [inf]  copy package.json
+2025-11-14T17:44:55.502891405Z [inf]  docker-image://ghcr.io/railwayapp/railpack-runtime:latest
+2025-11-14T17:44:55.502896794Z [inf]  copy /mise/installs
+2025-11-14T17:44:55.502907267Z [inf]  npm ci
+2025-11-14T17:44:55.503398025Z [inf]  [railpack] merge ghcr.io/railwayapp/railpack-runtime:latest, $packages:mise, $build, $build
+2025-11-14T17:44:55.503421420Z [inf]  copy /app
+2025-11-14T17:44:55.503431918Z [inf]  copy /root/.cache
+2025-11-14T17:44:55.503440568Z [inf]  copy /app/node_modules
+2025-11-14T17:44:55.503450004Z [inf]  copy / /app
+2025-11-14T17:44:55.503469611Z [inf]  docker-image://ghcr.io/railwayapp/railpack-runtime:latest
+2025-11-14T17:44:55.503491727Z [inf]  loading .
+2025-11-14T17:44:55.503508737Z [inf]  docker-image://ghcr.io/railwayapp/railpack-builder:latest
+2025-11-14T17:44:55.693122952Z [inf]  docker-image://ghcr.io/railwayapp/railpack-runtime:latest
+2025-11-14T17:44:55.707750379Z [inf]  docker-image://ghcr.io/railwayapp/railpack-builder:latest
+2025-11-14T17:44:55.708983190Z [inf]  mkdir /etc/mise
+2025-11-14T17:44:55.709016151Z [inf]  create mise config
+2025-11-14T17:44:55.709033690Z [inf]  loading .
+2025-11-14T17:44:55.709111415Z [inf]  install mise packages: node
+2025-11-14T17:44:55.727530746Z [inf]  loading .
+2025-11-14T17:44:55.908069078Z [inf]  mise node@22.21.1    install
+
+2025-11-14T17:44:55.910148029Z [inf]  mise node@22.21.1    download node-v22.21.1-linux-x64.tar.gz
+
+2025-11-14T17:44:56.911271472Z [inf]  mise node@22.21.1    extract node-v22.21.1-linux-x64.tar.gz
+
+2025-11-14T17:44:58.1214449Z [inf]  mise node@22.21.1    node -v
+
+2025-11-14T17:44:58.127025475Z [inf]  mise node@22.21.1    v22.21.1
+
+2025-11-14T17:44:58.12761868Z [inf]  mise node@22.21.1    npm -v
+
+2025-11-14T17:44:58.213394674Z [inf]  mise node@22.21.1    10.9.4
+
+2025-11-14T17:44:58.234027747Z [inf]  mise node@22.21.1  ✓ installed
+
+2025-11-14T17:44:58.345118738Z [inf]  install mise packages: node
+2025-11-14T17:44:58.346990140Z [inf]  mkdir -p /app/node_modules/.cache
+2025-11-14T17:44:58.477025695Z [inf]  mkdir -p /app/node_modules/.cache
+2025-11-14T17:44:58.478773005Z [inf]  copy package.json
+2025-11-14T17:44:58.494953123Z [inf]  copy package.json
+2025-11-14T17:44:58.497097254Z [inf]  copy package-lock.json
+2025-11-14T17:44:58.510839077Z [inf]  copy package-lock.json
+2025-11-14T17:44:58.512961356Z [inf]  npm ci
+2025-11-14T17:44:58.696724858Z [inf]  npm warn config production Use `--omit=dev` instead.
+
+2025-11-14T17:45:01.41528364Z [inf]  npm error code EUSAGE
+
+2025-11-14T17:45:01.415437435Z [inf]  npm error
+npm error `npm ci` can only install packages when your package.json and package-lock.json or npm-shrinkwrap.json are in sync. Please update your lock file with `npm install` before continuing.
+npm error
+npm error Missing: @keyv/sqlite@4.0.6 from lock file
+npm error Missing: keyv@5.5.4 from lock file
+npm error Missing: sqlite3@5.1.7 from lock file
+npm error Missing: @keyv/serialize@1.1.1 from lock file
+npm error Missing: bindings@1.5.0 from lock file
+npm error Missing: node-addon-api@7.1.1 from lock file
+npm error Missing: node-gyp@8.4.1 from lock file
+npm error Missing: prebuild-install@7.1.3 from lock file
+npm error Missing: file-uri-to-path@1.0.0 from lock file
+npm error Missing: env-paths@2.2.1 from lock file
+npm error Missing: glob@7.2.3 from lock file
+npm error Missing: graceful-fs@4.2.11 from lock file
+npm error Missing: make-fetch-happen@9.1.0 from lock file
+npm error Missing: nopt@5.0.0 from lock file
+npm error Missing: npmlog@6.0.2 from lock file
+npm error Missing: rimraf@3.0.2 from lock file
+npm error Missing: semver@7.7.3 from lock file
+npm error Missing: which@2.0.2 from lock file
+npm error Missing: fs.realpath@1.0.0 from lock file
+npm error Missing: inflight@1.0.6 from lock file
+npm error Missing: inherits@2.0.4 from lock file
+npm error Missing: minimatch@3.1.2 from lock file
+npm error Missing: once@1.4.0 from lock file
+npm error Missing: path-is-absolute@1.0.1 from lock file
+npm error Missing: wrappy@1.0.2 from lock file
+npm error Missing: agentkeepalive@4.6.0 from lock file
+npm error Missing: cacache@15.3.0 from lock file
+npm error Missing: http-cache-semantics@4.2.0 from lock file
+npm error Missing: http-proxy-agent@4.0.1 from lock file
+npm error Missing: https-proxy-agent@5.0.1 from lock file
+npm error Missing: is-lambda@1.0.1 from lock file
+npm error Missing: lru-cache@6.0.0 from lock file
+npm error Missing: minipass@3.3.6 from lock file
+npm error Missing: minipass-collect@1.0.2 from lock file
+npm error Missing: minipass-fetch@1.4.1 from lock file
+npm error Missing: minipass-flush@1.0.5 from lock file
+npm error Missing: minipass-pipeline@1.2.4 from lock file
+npm error Missing: negotiator@0.6.4 from lock file
+npm error Missing: promise-retry@2.0.1 from lock file
+npm error Missing: socks-proxy-agent@6.2.1 from lock file
+npm error Missing: ssri@8.0.1 from lock file
+npm error Missing: humanize-ms@1.2.1 from lock file
+npm error Missing: @npmcli/fs@1.1.1 from lock file
+npm error Missing: @npmcli/move-file@1.1.2 from lock file
+npm error Missing: infer-owner@1.0.4 from lock file
+npm error Missing: minipass@3.3.6 from lock file
+npm error Missing: p-map@4.0.0 from lock file
+npm error Missing: promise-inflight@1.0.1 from lock file
+npm error Missing: unique-filename@1.1.1 from lock file
+npm error Missing: @gar/promisify@1.1.3 from lock file
+npm error Missing: @tootallnate/once@1.1.2 from lock file
+npm error Missing: agent-base@6.0.2 from lock file
+npm error Missing: debug@4.4.3 from lock file
+npm error Missing: ms@2.1.3 from lock file
+npm error Missing: brace-expansion@1.1.12 from lock file
+npm error Missing: balanced-match@1.0.2 from lock file
+npm error Missing: concat-map@0.0.1 from lock file
+npm error Missing: minipass@3.3.6 from lock file
+npm error Missing: encoding@0.1.13 from lock file
+npm error Missing: minipass@3.3.6 from lock file
+npm error Missing: minipass-sized@1.0.3 from lock file
+npm error Missing: iconv-lite@0.6.3 from lock file
+npm error Missing: safer-buffer@2.1.2 from lock file
+npm error Missing: minipass@3.3.6 from lock file
+npm error Missing: minipass@3.3.6 from lock file
+npm error Missing: minipass@3.3.6 from lock file
+npm error Missing: abbrev@1.1.1 from lock file
+npm error Missing: are-we-there-yet@3.0.1 from lock file
+npm error Missing: console-control-strings@1.1.0 from lock file
+npm error Missing: gauge@4.0.4 from lock file
+npm error Missing: set-blocking@2.0.0 from lock file
+npm error Missing: delegates@1.0.0 from lock file
+npm error Missing: readable-stream@3.6.2 from lock file
+npm error Missing: aproba@2.1.0 from lock file
+npm error Missing: color-support@1.1.3 from lock file
+npm error Missing: has-unicode@2.0.1 from lock file
+npm error Missing: signal-exit@3.0.7 from lock file
+npm error Missing: string-width@4.2.3 from lock file
+npm error Missing: strip-ansi@6.0.1 from lock file
+npm error Missing: wide-align@1.1.5 from lock file
+npm error Missing: aggregate-error@3.1.0 from lock file
+npm error Missing: clean-stack@2.2.0 from lock file
+npm error Missing: indent-string@4.0.0 from lock file
+npm error Missing: detect-libc@2.1.2 from lock file
+npm error Missing: expand-template@2.0.3 from lock file
+npm error Missing: github-from-package@0.0.0 from lock file
+npm error Missing: minimist@1.2.8 from lock file
+npm error Missing: mkdirp-classic@0.5.3 from lock file
+npm error Missing: napi-build-utils@2.0.0 from lock file
+npm error Missing: node-abi@3.85.0 from lock file
+npm error Missing: pump@3.0.3 from lock file
+npm error Missing: rc@1.2.8 from lock file
+npm error Missing: simple-get@4.0.1 from lock file
+npm error Missing: tar-fs@2.1.4 from lock file
+npm error Missing: tunnel-agent@0.6.0 from lock file
+npm error Missing: err-code@2.0.3 from lock file
+npm error Missing: retry@0.12.0 from lock file
+npm error Missing: end-of-stream@1.4.5 from lock file
+npm error Missing: deep-extend@0.6.0 from lock file
+npm error Missing: ini@1.3.8 from lock file
+npm error Missing: strip-json-comments@2.0.1 from lock file
+npm error Missing: string_decoder@1.3.0 from lock file
+npm error Missing: util-deprecate@1.0.2 from lock file
+npm error Missing: decompress-response@6.0.0 from lock file
+npm error Missing: simple-concat@1.0.1 from lock file
+npm error Missing: mimic-response@3.1.0 from lock file
+npm error Missing: socks@2.8.7 from lock file
+npm error Missing: ip-address@10.1.0 from lock file
+npm error Missing: smart-buffer@4.2.0 from lock file
+npm error Missing: minipass@3.3.6 from lock file
+npm error Missing: safe-buffer@5.2.1 from lock file
+npm error Missing: emoji-regex@8.0.0 from lock file
+npm error Missing: is-fullwidth-code-point@3.0.0 from lock file
+npm error Missing: ansi-regex@5.0.1 from lock file
+npm error Missing: chownr@1.1.4 from lock file
+npm error Missing: tar-stream@2.2.0 from lock file
+npm error Missing: bl@4.1.0 from lock file
+npm error Missing: fs-constants@1.0.0 from lock file
+npm error Missing: buffer@5.7.1 from lock file
+npm error Missing: base64-js@1.5.1 from lock file
+npm error Missing: ieee754@1.2.1 from lock file
+npm error Missing: unique-slug@2.0.2 from lock file
+npm error Missing: imurmurhash@0.1.4 from lock file
+npm error Missing: isexe@2.0.0 from lock file
+npm error
+npm error Clean install a project
+npm error
+npm error Usage:
+npm error npm ci
+npm error
+npm error Options:
+npm error [--install-strategy <hoisted|nested|shallow|linked>] [--legacy-bundling]
+npm error [--global-style] [--omit <dev|optional|peer> [--omit <dev|optional|peer> ...]]
+npm error [--include <prod|dev|optional|peer> [--include <prod|dev|optional|peer> ...]]
+npm error [--strict-peer-deps] [--foreground-scripts] [--ignore-scripts] [--no-audit]
+npm error [--no-bin-links] [--no-fund] [--dry-run]
+npm error [-w|--workspace <workspace-name> [-w|--workspace <workspace-name> ...]]
+npm error [-ws|--workspaces] [--include-workspace-root] [--install-links]
+npm error
+npm error aliases: clean-install, ic, install-clean, isntall-clean
+npm error
+npm error Run "npm help ci" for more info
+
+2025-11-14T17:45:01.416326417Z [inf]  npm error A complete log of this run can be found in: /root/.npm/_logs/2025-11-14T17_44_58_677Z-debug-0.log
+
+2025-11-14T17:45:08.957464268Z [err]  npm ci
+2025-11-14T17:45:09.494333775Z [err]  ERROR: failed to build: failed to solve: process "npm ci" did not complete successfully: exit code: 1
