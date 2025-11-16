@@ -4,23 +4,12 @@
 Legends Reborn is a Discord RPG bot built with Discord.js. Players create characters, choose classes, hunt monsters, mine resources, equip items, and progress through a tower-based RPG system directly in Discord.
 
 ## Project Status
-- **Last Updated**: November 16, 2025
+- **Last Updated**: November 14, 2025
 - **Status**: Production Ready ✅
 - **Language**: JavaScript (Node.js)
 - **Main Entry Point**: bot.js
 
 ## Recent Changes
-- **November 16, 2025**: Complete skill system and turn-based PvP implementation with bug fixes
-  - ✅ Implemented 24 unique skills across 4 classes (6 per class) with progression trees
-  - ✅ Created turn-based PvP combat system with 60-second turn timers
-  - ✅ Implemented DoT effects (bleeding, poison), buffs, debuffs, shields, and evasion
-  - ✅ Created ELO-based PvP rating system with K-factor balancing
-  - ✅ Added PvP rankings with seasonal statistics (wins, streaks, best rating)
-  - ✅ Commands: !habilidades, !aprender, !duelo, !atacar, !usar, !item, !desistir, !rank
-  - ✅ Fixed critical MP initialization bug in battle system
-  - ✅ Centralized battle conclusion logic to eliminate code duplication
-  - ✅ Fixed division-by-zero bug in ELO calculations for new players
-
 - **November 14, 2025**: Complete bot overhaul and production-ready release
   - ✅ Implemented robust data migration system with `=== undefined` guards to preserve legitimate zero values
   - ✅ Expanded item system: 40+ items across weapons, armor, accessories, and consumables with rarity tiers
@@ -40,8 +29,6 @@ Legends Reborn is a Discord RPG bot built with Discord.js. Players create charac
 - **utils/items.js**: 40+ item definitions with rarity tiers (Comum, Incomum, Raro, Épico, Lendário)
 - **utils/monsters.js**: 15+ monster definitions including tower bosses
 - **utils/shop.js**: Shop inventory and pricing system
-- **utils/habilidades.js**: 24 skill definitions with class-specific trees and progression
-- **utils/battleManager.js**: Turn-based PvP combat engine with state management and ELO system
 
 ### Command Structure
 Commands organized in `/commands/` folders:
@@ -54,16 +41,6 @@ Commands organized in `/commands/` folders:
 - `desequipar` (`unequip`, `u`): Unequip items from slots
 - `distribuir` (`dist`, `d`): Distribute attribute points (Força, Destreza, Constituição, Inteligência)
 - `caçar` (`hunt`, `h`): Hunt monsters for XP, loot, and currency (automated battles)
-- `habilidades` (`skills`): View available skills for your class with unlock requirements
-- `aprender` (`learn`): Unlock and upgrade skills using skill points
-
-**PvP/** - Player versus Player combat:
-- `duelo` (`duel`): Challenge another player to turn-based PvP combat
-- `atacar` (`attack`, `atk`): Perform basic attack during your turn in battle
-- `usar` (`use`): Use a skill during your turn in battle
-- `item`: Use consumable item during your turn in battle
-- `desistir` (`surrender`, `forfeit`): Give up current battle (loses rating)
-- `rank` (`ranking`, `leaderboard`): View PvP rankings (top by wins and rating)
 
 **Profissoes/** - Gathering professions:
 - `minerar` (`mine`, `m`): Mine resources for crafting materials and currency
@@ -78,26 +55,11 @@ Commands organized in `/commands/` folders:
 - `admin`: Narrator/admin tools for manual game management
 
 ### Class System
-Players choose one permanent class with unique bonuses and skill trees:
-- **Guerreiro**: +3 Força, +2 Constituição | Skills: Golpe Poderoso, Fúria Berserk, Escudo de Ferro, Investida Brutal, Grito de Guerra, Colossus
-- **Mago**: +3 Inteligência, +2 Destreza | Skills: Bola de Fogo, Tempestade de Raios, Barreira Arcana, Congelar, Drenar Mana, Meteoro
-- **Arqueiro**: +3 Destreza, +2 Força | Skills: Tiro Certeiro, Chuva de Flechas, Flecha Perfurante, Armadilha Venenosa, Flecha Explosiva, Rajada Letal
-- **Ladino**: +2 Destreza, +2 Inteligência, +1 Força | Skills: Apunhalar, Veneno Mortal, Evasão, Ataque das Sombras, Roubo de Vida, Dança das Lâminas
-
-### Skill System
-- **Skill Points**: Earned on level up (1 per level)
-- **Skill Trees**: Each class has 6 unique skills with progression tiers
-- **Requirements**: Skills require minimum level and previous skills unlocked
-- **Upgrades**: Most skills can be upgraded 2-3 times for increased power
-- **MP System**: Skills cost MP to use in combat (regenerates over time)
-
-### PvP Combat System
-- **Turn-based**: 60-second timer per turn, alternating between players
-- **Actions**: Basic attack (free), skills (costs MP), items (consumes item)
-- **Effects**: DoT (bleeding, poison), buffs (damage, defense), debuffs, shields, evasion
-- **ELO Rating**: Dynamic rating system with K-factor (32-40) based on rating difference
-- **Rewards**: Winner gains rating, currency (50 + 10 per turn), and win streak
-- **Statistics**: Tracks wins, losses, draws, total duels, best rating, best streak
+Players choose one permanent class with unique bonuses:
+- **Guerreiro**: +3 Força, +2 Constituição
+- **Mago**: +3 Inteligência, +2 Destreza
+- **Arqueiro**: +3 Destreza, +2 Força
+- **Ladino**: +2 Destreza, +2 Inteligência, +1 Força
 
 ### Tower System
 - **Manual progression**: Narrators control floor advancement and story missions
@@ -115,11 +77,9 @@ Players choose one permanent class with unique bonuses and skill trees:
   - Attributes (Força, Destreza, Constituição, Inteligência)
   - Points (attribute, skill)
   - Class (permanent choice)
-  - Skills (habilidades: array of unlocked skills with levels)
   - Cooldowns (treino, cacar, minerar, torre)
   - Professions (mineracao, ferraria, alquimia)
   - Tower progress (floor, completed missions)
-  - PvP statistics (rating, best rating, wins, losses, draws, streaks)
   - Statistics (monsters defeated, deaths, money earned, items found)
   - Achievements
 
