@@ -1,0 +1,55 @@
+Esse é meu bot:
+
+Proposta de Projeto: Legends Reborn
+
+Legends Reborn é um bot de RPG para Discord projetado para criar um mundo persistente e imersivo, inspirado na temática de "Torres de Desafios" popular em manhwas coreanos. O projeto visa ir além de um simples bot de grinding, equilibrando mecânicas profundas de RPG com um forte incentivo à interação e ao roleplay (RP) entre os jogadores. O objetivo é criar não apenas um jogo, mas uma comunidade viva dentro do servidor.
+
+O núcleo da experiência do jogador será a Jornada do Herói, começando como um "Aprendiz" e evoluindo através de um sistema de níveis e atributos robusto. Diferente de sistemas simples, as ações dos jogadores, como caçar monstros, é que concederão experiência (XP). Ao subir de nível, o jogador não receberá bônus aleatórios, mas sim pontos de atributo (Força, Destreza, Constituição, Inteligência) para distribuir livremente, permitindo uma personalização profunda de seu estilo de jogo. O ápice dessa personalização virá com o "Despertar": ao atingir um certo nível e completar missões de classe, o jogador escolherá um caminho definitivo — como Guerreiro, Arqueiro ou Mago — que destravará uma árvore de habilidades exclusiva, onde poderá gastar "pontos de habilidade" para aprender técnicas de combate ativas e passivas.
+
+O combate será um sistema híbrido para atender a diferentes estilos de jogo. Para o dia a dia, um sistema de PvE rápido (!caçar) permitirá que os jogadores enfrentem monstros comuns em batalhas instantâneas para farmar XP e itens. No entanto, os grandes desafios, como os chefes da Torre e duelos PvP (!duelo), acontecerão em um sistema de batalha épico por turnos. Nessas lutas, o bot gerenciará os turnos, HP e recursos, enquanto os jogadores usarão comandos para desferir ataques e ativar as habilidades que aprenderam, com o bot narrando o resultado de cada ação. Para eventos especiais e chefes de andar, a narração poderá até ser assumida por um Mestre de Jogo humano, misturando a automação do bot com a criatividade do RP.
+
+Para garantir que o mundo seja dinâmico e que os jogadores sempre tenham o que fazer, o projeto incluirá um pilar de Economia e Profissões. Mesmo quando os comandos de combate estiverem em cooldown, os jogadores poderão se dedicar a atividades como !minerar e !coletar, que possuem seu próprio sistema de nível e progressão. Os materiais obtidos nessas profissões alimentarão um sistema de crafting, permitindo a criação de equipamentos e consumíveis. Itens e materiais poderão ser comercializados em uma loja de NPCs e em um mercado gerido pelos próprios jogadores, criando uma economia viva e autossustentável.
+
+O grande objetivo do jogo será a conquista da Torre dos Desafios. Cada andar apresentará um desafio único que exigirá cooperação, seja derrotar um chefe poderoso em uma batalha tática, desvendar um enigma complexo em grupo ou sobreviver a hordas de inimigos. A progressão na torre será o principal motor da história e do gameplay em grupo.
+
+Finalmente, para fortalecer a comunidade e o aspecto de RP, sistemas sociais aprimorados serão implementados. Os jogadores poderão formar grupos (parties) para enfrentar desafios e receber bônus, e criar ou juntar-se a guildas. As guildas terão seus próprios níveis, buffs e objetivos, incentivando a colaboração em larga escala e dando aos jogadores uma razão para lutar não apenas por si mesmos, mas por um objetivo comum. O equilíbrio entre o grinding individual e a necessidade de cooperação para superar os grandes desafios da Torre será a chave para manter o servidor ativo e engajado, transformando Legends Reborn em uma experiência de RPG completa e memorável.
+
+Eu quero esses comandos:
+
+Visão do Jogador: Ao usar !habilidades (ou !skills), o jogador verá uma embed interativa com botões ou um menu de seleção. Ele poderá navegar entre "Árvores de Habilidade" disponíveis para sua classe (ex: Guerreiro -> Fúria, Defesa). Cada árvore mostrará uma lista de habilidades, seu nível atual, o que elas fazem e o custo em "Pontos de Habilidade" (PH) para aprender ou aprimorar. Ele usará !aprender <nome da skill> para gastar seus PH.
+
+Como Vai Funcionar (Código):
+
+utils/habilidades.js: Criaremos um grande objeto JSON que define CADA skill do jogo.
+
+Exemplo de Skill: 'corte-profundo': { nome: 'Corte Profundo', classe: 'Guerreiro', tipo: 'Ativa', custoMP: 10, danoBase: 20, escala: 'forca', nivelMax: 5, descricao: 'Um corte que causa sangramento...' }
+
+database.js: Adicionaremos habilidades: {} ao defaultProfile. Ele guardará as skills que o jogador aprendeu e o nível delas. Ex: habilidades: { 'corte-profundo': 1 }.
+
+Comando !habilidades: Ele lerá a classe do jogador, pegará a lista de skills correspondente do habilidades.js, e comparará com as skills que o jogador já tem no database.js para montar a embed.
+
+Comando !aprender: Verificará se o jogador tem PH suficiente, se tem a classe correta, se a skill pode ser aprimorada e, então, atualizará o database.js e subtrairá o PH.
+
+Pilar II: O Desafio (Sistemas de Combate & Conteúdo)
+
+Visão do Jogador: Tudo começa com !duelo @oponente ou ao encontrar um Boss. O bot cria um tópico ou canal temporário para a batalha. A cada turno, o bot anuncia: "É o turno de @Jogador!" e mostra o HP/MP de todos. O jogador tem 60 segundos para usar um comando de ação, como !usar corte-profundo em @Oponente ou !item pocao-de-vida. O bot então narra o resultado da ação e anuncia o próximo turno.
+
+Como Vai Funcionar (Código):
+
+Gerenciador de Batalhas: Criaremos um objeto global no bot (fora de qualquer comando) que guardará o "estado" de todas as batalhas ativas. Ex: batalhasAtivas = { 'ID_DO_CANAL': { jogadores: [...], turnoAtual: 0, ... } }.
+
+Comando !duelo: Ele cria a "sala" de batalha no gerenciador e envia a mensagem inicial.
+
+Comando !usar: Este comando é especial. A primeira coisa que ele faz é verificar se a mensagem foi enviada em um canal de batalha. Se sim, ele verifica se é o turno do autor. Se for, ele pega a skill do habilidades.js, calcula o dano (usando os atributos do jogador e a fórmula da skill), atualiza o HP do alvo no gerenciador de batalhas, e anuncia o resultado.
+
+Loop de Turno: O bot usará setTimeout para controlar o tempo do turno. Se o tempo acabar, o jogador perde a vez. Após cada ação, o bot avança para o próximo jogador na lista de turnos.
+
+Visão do Jogador: A qualquer momento, ele pode usar !rank pvp para ver um "Top 10" dos jogadores com mais vitórias em duelos na temporada atual. No final do mês, os melhores recebem um prêmio (título, moedas).
+
+Como Vai Funcionar (Código):
+
+database.js: Adicionaremos estatisticas: { pvpVitorias: 0, pvpDerrotas: 0 } ao perfil.
+
+Gerenciador de Batalhas: Ao final de um duelo, ele atualizará as estatísticas do vencedor e do perdedor no banco de dados.
+
+Comando !rank: Este comando fará algo novo: ele vai ler TODOS os dados de TODOS os jogadores no banco de dados, ordená-los pelo número de vitórias e pegar os 10 primeiros para montar a embed.
