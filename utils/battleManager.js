@@ -355,8 +355,16 @@ async function processarFimBatalha(batalha, verificacao) {
         const diferencaRating = Math.abs(vencedorData.pvp.rating - perdedorData.pvp.rating);
         const kFactor = diferencaRating > 200 ? 40 : 32;
         
-        const ganhoRating = Math.floor(kFactor * (1 - (vencedorData.pvp.rating / (vencedorData.pvp.rating + perdedorData.pvp.rating))));
-        const perdaRating = Math.floor(kFactor * (perdedorData.pvp.rating / (vencedorData.pvp.rating + perdedorData.pvp.rating)));
+        const somaRatings = vencedorData.pvp.rating + perdedorData.pvp.rating;
+        
+        let ganhoRating, perdaRating;
+        if (somaRatings === 0) {
+            ganhoRating = kFactor;
+            perdaRating = kFactor;
+        } else {
+            ganhoRating = Math.floor(kFactor * (1 - (vencedorData.pvp.rating / somaRatings)));
+            perdaRating = Math.floor(kFactor * (perdedorData.pvp.rating / somaRatings));
+        }
 
         vencedorData.pvp.rating += ganhoRating;
         perdedorData.pvp.rating = Math.max(0, perdedorData.pvp.rating - perdaRating);
