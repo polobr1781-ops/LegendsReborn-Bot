@@ -30,7 +30,9 @@ const defaultProfile = {
     inventario: [],
     equipamento: { arma: null, elmo: null, peitoral: null, calcas: null, botas: null, anel: null, amuleto: null },
     pontos: { atributo: 5, habilidade: 1 },
+    pontosHabilidade: 0,
     atributos: { forca: 5, destreza: 5, constituicao: 5, inteligencia: 5 },
+    habilidades: {},
     classe: null,
     profissoes: {
         mineracao: { level: 1, xp: 0 },
@@ -46,7 +48,17 @@ const defaultProfile = {
         monstrosDerrotados: 0,
         mortesTotal: 0,
         dinheiroGanho: 0,
-        itensEncontrados: 0
+        itensEncontrados: 0,
+        pvpVitorias: 0,
+        pvpDerrotas: 0,
+        pvpEmpates: 0,
+        duelosRealizados: 0
+    },
+    pvp: {
+        rating: 1000,
+        melhorRating: 1000,
+        vitoriasSeguidas: 0,
+        melhorSequencia: 0
     },
     conquistas: [],
     cor: '#3498DB'
@@ -102,6 +114,10 @@ function migrarPlayerData(playerData) {
         if (migrated.estatisticas.mortesTotal === undefined) migrated.estatisticas.mortesTotal = 0;
         if (migrated.estatisticas.dinheiroGanho === undefined) migrated.estatisticas.dinheiroGanho = 0;
         if (migrated.estatisticas.itensEncontrados === undefined) migrated.estatisticas.itensEncontrados = 0;
+        if (migrated.estatisticas.pvpVitorias === undefined) migrated.estatisticas.pvpVitorias = 0;
+        if (migrated.estatisticas.pvpDerrotas === undefined) migrated.estatisticas.pvpDerrotas = 0;
+        if (migrated.estatisticas.pvpEmpates === undefined) migrated.estatisticas.pvpEmpates = 0;
+        if (migrated.estatisticas.duelosRealizados === undefined) migrated.estatisticas.duelosRealizados = 0;
     }
     
     if (!migrated.torre) {
@@ -166,6 +182,23 @@ function migrarPlayerData(playerData) {
         migrated.xpParaUpar = calcularXpParaUpar(migrated.level);
     }
     
+    if (migrated.habilidades === undefined) {
+        migrated.habilidades = {};
+    }
+    
+    if (migrated.pontosHabilidade === undefined) {
+        migrated.pontosHabilidade = 0;
+    }
+    
+    if (!migrated.pvp) {
+        migrated.pvp = defaults.pvp;
+    } else {
+        if (migrated.pvp.rating === undefined) migrated.pvp.rating = 1000;
+        if (migrated.pvp.melhorRating === undefined) migrated.pvp.melhorRating = migrated.pvp.rating || 1000;
+        if (migrated.pvp.vitoriasSeguidas === undefined) migrated.pvp.vitoriasSeguidas = 0;
+        if (migrated.pvp.melhorSequencia === undefined) migrated.pvp.melhorSequencia = 0;
+    }
+    
     return migrated;
 }
 
@@ -196,6 +229,7 @@ function adicionarXp(player, xpAmount) {
         player.xp -= player.xpParaUpar;
         player.pontos.atributo += 3;
         player.pontos.habilidade += 1;
+        player.pontosHabilidade += 1;
         player.xpParaUpar = calcularXpParaUpar(player.level);
         levelUps++;
     }
